@@ -1,10 +1,21 @@
-# Coverallsapp Coveralls
+# Coveralls
 
-## How do I install these formulae?
+This homebrew tap provides the following package:
 
-`brew install coverallsapp/coveralls/<formula>`
+`coveralls` - a universal coverage reporter for coveralls.io
 
-Or `brew tap coverallsapp/coveralls` and then `brew install <formula>`.
+## Installation
+
+```
+brew install coverallsapp/coveralls/coveralls
+```
+
+Or
+
+```
+brew tap coverallsapp/coveralls
+brew install coveralls
+```
 
 ## Documentation
 
