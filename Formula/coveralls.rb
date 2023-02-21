@@ -6,8 +6,8 @@ class Coveralls < Formula
   license "MIT"
 
   depends_on "crystal" => :build
-  depends_on "libyaml"
   depends_on "libevent"
+  depends_on "libyaml"
   depends_on "pcre"
 
   def install

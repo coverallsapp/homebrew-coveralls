@@ -2,19 +2,19 @@
 
 This homebrew tap provides the following package:
 
-`coveralls` - a universal coverage reporter for coveralls.io
+`coveralls` - a **universal coverage reporter** for [coveralls.io](coveralls.io). See: [github.com/coverallsapp/coverage-reporter](https://github.com/coverallsapp/coverage-reporter)
 
 ## Installation
 
 ```
-brew install coverallsapp/coveralls/coveralls
+brew tap coverallsapp/coveralls
+brew install coveralls
 ```
 
 Or
 
 ```
-brew tap coverallsapp/coveralls
-brew install coveralls
+brew install coverallsapp/coveralls/coveralls
 ```
 
 ## Documentation
