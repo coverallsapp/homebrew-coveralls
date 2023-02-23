@@ -17,6 +17,21 @@ Or
 brew install coverallsapp/coveralls/coveralls
 ```
 
-## Documentation
+## Updating the formula (dev)
 
-`brew help`, `man brew` or check [Homebrew's documentation](https://docs.brew.sh).
+1. Update the tag version in formula
+
+2. Fetch SHA265 using this command:
+
+```
+brew fetch --build-from-source coveralls
+```
+
+3. Update the SHA256 in formula.
+
+4. Install locally (check there're no errors)
+
+```
+brew install --build-from-source coveralls
+```
+
