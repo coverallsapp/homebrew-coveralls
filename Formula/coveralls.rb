@@ -1,8 +1,8 @@
 class Coveralls < Formula
   desc "Self-contained, universal coverage uploader binary for Coveralls"
   homepage "https://github.com/coverallsapp/coverage-reporter"
-  url "https://github.com/coverallsapp/coverage-reporter/archive/refs/tags/v0.2.3.tar.gz"
-  sha256 "8569060029c9175180bda08bd52f5079486f0cf58cc13b9d531a4fde349f6fd6"
+  url "https://github.com/coverallsapp/coverage-reporter/archive/refs/tags/v0.2.4.tar.gz"
+  sha256 "30ec9c03fc0c2d02051f87a8446040d610723f166262d05f4e9e4fbe407fa637"
   license "MIT"
 
   depends_on "crystal" => :build
