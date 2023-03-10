@@ -1,7 +1,7 @@
 class Coveralls < Formula
   desc "Self-contained, universal coverage uploader for Coveralls"
   homepage "https://github.com/coverallsapp/coverage-reporter"
-  url "https://github.com/coverallsapp/coverage-reporter/archive/refs/tags/v0.2.8.tar.gz"
+  url "https://github.com/coverallsapp/coverage-reporter/archive/refs/tags/v0.2.10.tar.gz"
   sha256 "194077146ee2faa56370547a1e63e851f22d1122f72faa249e18b89fb51392f7"
   license "MIT"
 
@@ -16,6 +16,7 @@ class Coveralls < Formula
   depends_on "libevent"
   depends_on "libyaml"
   depends_on "pcre"
+  depends_on "sqlite"
 
   uses_from_macos "libxml2"
 
