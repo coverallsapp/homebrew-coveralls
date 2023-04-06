@@ -1,8 +1,8 @@
 class Coveralls < Formula
   desc "Self-contained, universal coverage uploader for Coveralls"
   homepage "https://github.com/coverallsapp/coverage-reporter"
-  url "https://github.com/coverallsapp/coverage-reporter/archive/refs/tags/v0.2.20.tar.gz"
-  sha256 "f713557df0d835f559f4ce719a166ca35452a37468773917d489c00c0f73c554"
+  url "https://github.com/coverallsapp/coverage-reporter/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "9ae429f1ea42a06e7f600171100c7d0009f8d983422894bd4122b1798d287c78"
   license "MIT"
 
   bottle do
