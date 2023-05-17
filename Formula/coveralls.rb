@@ -22,10 +22,9 @@ class Coveralls < Formula
   uses_from_macos "libxml2"
 
   def install
-    system "shards", "install", "--production"
-    system "crystal", "build", "src/cli.cr", "-o", "./dist/coveralls", "--release", "--no-debug"
-    system "strip", "./dist/coveralls"
-    bin.install "./dist/coveralls"
+    system "shards", "build", "coveralls", "--production", "--release", "--no-debug"
+    system "strip", "./bin/coveralls"
+    bin.install "./bin/coveralls"
   end
 
   test do
