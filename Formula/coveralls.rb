@@ -6,10 +6,10 @@ class Coveralls < Formula
   license "MIT"
 
   bottle do
-    root_url "https://github.com/coverallsapp/homebrew-coveralls/releases/download/coveralls-0.5.1"
-    sha256 cellar: :any,                 monterey:     "eb307c235eedb98581417c4e387e02808b3a90860bf292fcf15dfc67fd3afce6"
-    sha256 cellar: :any,                 big_sur:      "4fadc5aad43a1bb06ecc6bda0bc02f8e74af34545b49e5f2c55e17cf1e009826"
-    sha256 cellar: :any_skip_relocation, x86_64_linux: "d28de84de93f80c7bc67f404e6662dfebffec64bdfd7fe46170fc54410012485"
+    root_url "https://github.com/coverallsapp/homebrew-coveralls/releases/download/coveralls-0.5.2"
+    sha256 cellar: :any,                 monterey:     "99d859f42b2d21775c29eac5d783f45e07174754793699339200b5521c07b32c"
+    sha256 cellar: :any,                 big_sur:      "62569009247b78ebea0ec1cccaf5775616197f91d7df6588ebbc7844b79582cb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux: "51d6815131499492d9fc4e1f7a80d3a89fc4365c95433055fe488a20e8e328eb"
   end
 
   depends_on "crystal" => :build
