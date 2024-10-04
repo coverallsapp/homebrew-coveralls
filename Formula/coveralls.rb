@@ -7,9 +7,9 @@ class Coveralls < Formula
 
   bottle do
     root_url "https://github.com/coverallsapp/homebrew-coveralls/releases/download/coveralls-0.6.15"
-    sha256 cellar: :any,                 arm64_sonoma:  "6ca174fe2a7b2fb68d7c3fe786aea03a234e4d78c49f452e724885c80d89b5d9"
-    sha256 cellar: :any,                 ventura:       "63968457a0c123ab68972e96f8d265634bbd06c357d56f6f30b2005b9ac6c017"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "a1a657b849815801ec68a578179eb95e78c7cda2b9070cf93a54882c7638272e"
+    sha256 cellar: :any,                 arm64_sonoma:  "49ba6c2386ffc17a03aee5483f41c2ba03e272d8224e9165a1bdf10307fcd9a8"
+    sha256 cellar: :any,                 ventura:       "5fadee64a25c83f610c9583ca86d865262f6dff6bad951f7bc3a73c6caebdd52"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "819b980135dad736042713d4fe949fec793b5e26028b6364e808413091dd1cb7"
   end
 
   depends_on "crystal" => :build
