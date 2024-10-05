@@ -42,7 +42,7 @@ jobs:
       
       # Debug: Upload workpace state
       - name: Upload workspace state
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: workspace-state-after
           path: .
