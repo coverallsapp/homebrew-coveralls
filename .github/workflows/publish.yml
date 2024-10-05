@@ -1,7 +1,8 @@
 name: brew pr-pull
 permissions:
-  contents: write
   actions: write
+  contents: write
+  pull-requests: write
 on:
   pull_request_target:
     types:
@@ -26,6 +27,25 @@ jobs:
           HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.actor }}
           PULL_REQUEST: ${{ github.event.pull_request.number }}
         run: brew pr-pull --debug --tap="$GITHUB_REPOSITORY" "$PULL_REQUEST"
+
+      # Debug: Show commit log (last 5 commits)
+      - name: Show commit log (last 5 commits)
+        run: git log -n 5 --oneline
+        
+      # Debug: Show contents of .git/HEAD
+      - name: Show .git/HEAD
+        run: cat .git/HEAD
+
+      # Debug: Show contents of .git/logs/HEAD
+      - name: Show .git logs
+        run: cat .git/logs/HEAD
+      
+      # Debug: Upload workpace state
+      - name: Upload workspace state
+        uses: actions/upload-artifact@v2
+        with:
+          name: workspace-state-after
+          path: .
 
       - name: Push commits
         uses: Homebrew/actions/git-try-push@master
