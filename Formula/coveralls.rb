@@ -19,9 +19,16 @@ class Coveralls < Formula
   depends_on "pcre2"
   depends_on "sqlite"
 
-  uses_from_macos "libxml2"
+  # uses_from_macos "libxml2"
+  # Force brewed libxml2 (system libxml2 crashes on macOS 15.4+)
+  depends_on "libxml2"
 
   def install
+    # Ensure the build links against brewed libxml2
+    ENV.append_path "PKG_CONFIG_PATH", Formula["libxml2"].opt_lib/"pkgconfig"
+    ENV.prepend     "LDFLAGS",  "-L#{Formula["libxml2"].opt_lib}"
+    ENV.prepend     "CPPFLAGS", "-I#{Formula["libxml2"].opt_include}"
+
     system "shards", "build", "coveralls", "--production", "--release", "--no-debug"
     system "strip", "./bin/coveralls"
     bin.install "./bin/coveralls"
