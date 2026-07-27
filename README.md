@@ -7,14 +7,17 @@ This homebrew tap provides the following package:
 ## Installation
 
 ```bash
-brew tap coverallsapp/coveralls
-brew install coveralls
+brew install coverallsapp/coveralls/coveralls
 ```
 
-Or
+The fully-qualified name taps this repo automatically and trusts only the `coveralls` formula, as required by [tap trust](https://docs.brew.sh/Tap-Trust) in Homebrew 6.0.0+.
+
+Alternatively, trust the whole tap first:
 
 ```bash
-brew install coverallsapp/coveralls/coveralls
+brew trust coverallsapp/coveralls   # Homebrew 6.0.0+
+brew tap coverallsapp/coveralls
+brew install coveralls
 ```
 
 ## Updating the formula (dev)
