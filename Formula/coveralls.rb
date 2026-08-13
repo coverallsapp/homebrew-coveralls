@@ -16,10 +16,12 @@ class Coveralls < Formula
   depends_on "bdw-gc"
   depends_on "libevent"
   depends_on "libyaml"
+  depends_on "openssl@3"
   depends_on "pcre2"
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
+  uses_from_macos "zlib"
 
   def install
     system "shards", "build", "coveralls", "--production", "--release", "--no-debug"
