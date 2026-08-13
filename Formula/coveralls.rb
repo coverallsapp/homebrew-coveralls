@@ -21,7 +21,10 @@ class Coveralls < Formula
   depends_on "sqlite"
 
   uses_from_macos "libxml2"
-  uses_from_macos "zlib"
+
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   def install
     system "shards", "build", "coveralls", "--production", "--release", "--no-debug"
