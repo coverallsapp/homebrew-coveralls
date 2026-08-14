@@ -1,0 +1,23 @@
+# Dependabot keeps this tap's CI dependencies from silently drifting.
+#
+# Context: the coverage-reporter v0.6.18 release surfaced three separate
+# breakages caused by external drift in release infrastructure that had not
+# run since Sept 2025 -- one of which was a GitHub Action pinned five major
+# versions behind. This tap is part of that same release path, so it gets the
+# same protection.
+#
+# The Homebrew/actions refs are pinned to a SHA with a trailing version
+# comment; Dependabot reads that comment and will open PRs to advance both the
+# SHA and the comment as new releases are tagged.
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    commit-message:
+      prefix: "ci"
+    labels:
+      - "dependencies"
+      - "github-actions"
