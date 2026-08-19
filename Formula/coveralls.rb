@@ -46,7 +46,32 @@ class Coveralls < Formula
     #
     # Drop this once crystal-lang/crystal#17212 is fixed and released. Verify by
     # confirming `strings bin/coveralls | grep SYSMON` returns nothing.
-    system "shards", "build", "coveralls", "--production", "--release", "--no-debug", "-Dwithout_mt"
+    flags = ["--production", "--release", "--no-debug", "-Dwithout_mt"]
+
+    # On Linux, `-Devloop=libevent` is also required.
+    #
+    # Crystal >= 1.19 creates a CLOCK_BOOTTIME timerfd while starting its
+    # default (epoll) event loop. Sandboxed container runtimes -- gVisor and
+    # similar, which back Cloud Run, GKE Autopilot and several CI providers --
+    # implement timerfd_create() for CLOCK_REALTIME/CLOCK_MONOTONIC only and
+    # return EINVAL for CLOCK_BOOTTIME. The event loop is built during startup,
+    # so the binary dies before main(), even for `coveralls --version`:
+    #
+    #   Unhandled exception: timerfd_settime: Invalid argument (RuntimeError)
+    #
+    # (The message names the wrong syscall; the failing call is
+    # timerfd_create.) This broke the x86_64_linux bottles for 0.6.19 through
+    # 0.6.21. The libevent loop does not use timerfd at all.
+    #
+    # macOS is unaffected: timerfd is Linux-only, so upstream guards that file
+    # with `{% skip_file unless flag?(:linux) %}` and macOS uses kqueue.
+    #
+    # Upstream coverage-reporter applies the same flag in scripts/xbuild.sh for
+    # its own Linux binaries, and gates it in CI. Drop this once Crystal grows a
+    # CLOCK_MONOTONIC fallback.
+    flags << "-Devloop=libevent" if OS.linux?
+
+    system "shards", "build", "coveralls", *flags
     system "strip", "./bin/coveralls"
     bin.install "./bin/coveralls"
   end
